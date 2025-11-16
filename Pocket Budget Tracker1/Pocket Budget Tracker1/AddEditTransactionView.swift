@@ -1,35 +1,25 @@
-//
+
 //  AddEditTransactionView.swift
-//  Pocket Budget Tracker1
-//
-//  Created by IM Student on 2025-11-11.
-//
-//  MARK: - Purpose
+
 //  Provides a form-based interface for creating new transactions or editing existing ones.
-//  Handles validation, Core Data persistence, and user feedback through haptic notifications.
 
 import SwiftUI
 import CoreData
 import UIKit
 
-// MARK: - Notification Extension
-/// Custom notification for signaling when a transaction has been successfully saved
+// Custom notification for signaling when a transaction has been successfully saved
 private extension Notification.Name {
     static let transactionSaved = Notification.Name("TransactionSaved")
 }
 
-// MARK: - AddEditTransactionView
-/// Form view for creating or editing financial transactions.
-/// Supports editing existing transactions and creating new ones with validation.
+// Form view for creating or editing financial transactions.
 struct AddEditTransactionView: View {
-    // MARK: - Environment
     @Environment(\.managedObjectContext) private var context
     @Environment(\.dismiss) private var dismiss
 
-    // MARK: - Properties
-    /// The transaction being edited, or nil if creating a new one
+    // The transaction being edited, or nil if creating a new one
     var transaction: Transaction?
-    /// Optional callback invoked after successful save
+    // Optional callback invoked after successful save
     var onSaved: (() -> Void)? = nil
 
     // MARK: - State
@@ -39,13 +29,10 @@ struct AddEditTransactionView: View {
     @State private var type: String = "Expense"
     @State private var date: Date = Date()
 
-    // MARK: - Constants
-    /// Available transaction categories for user selection
+    // Available transaction categories for user selection
     private let categories = ["General", "Food", "Transport", "Bills", "Entertainment", "Health", "Salary", "Other"]
 
-    // MARK: - Initialization
-    /// Initializes the view with optional transaction for editing.
-    /// If a transaction is provided, its values are loaded into the form fields.
+    // Initializes the view with optional transaction for editing.
     init(transaction: Transaction? = nil, onSaved: (() -> Void)? = nil) {
         self.transaction = transaction
         self.onSaved = onSaved
@@ -103,9 +90,7 @@ struct AddEditTransactionView: View {
         .navigationTitle(transaction == nil ? "Add Transaction" : "Edit Transaction")
     }
 
-    // MARK: - Validation
-    /// Validates form input before saving.
-    /// Checks: non-empty title, valid positive amount, and valid transaction type.
+    // Checks: non-empty title, valid positive amount, and valid transaction type.
     private var isValid: Bool {
         guard !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return false }
         guard let amt = Double(amount), amt > 0 else { return false }
@@ -113,10 +98,7 @@ struct AddEditTransactionView: View {
         return true
     }
 
-    // MARK: - Actions
-    /// Saves the transaction to Core Data.
-    /// Creates a new transaction if editing mode is false, otherwise updates the existing one.
-    /// Provides haptic feedback, posts notification, and dismisses the view on success.
+    // Creates a new transaction if editing mode is false, otherwise updates the existing one.
     private func save() {
         let amt = Double(amount) ?? 0
         let t = transaction ?? Transaction(context: context)
@@ -153,7 +135,7 @@ struct AddEditTransactionView: View {
         }
     }
     
-    /// Deletes the current transaction from Core Data and dismisses the view.
+    // Deletes the current transaction from Core Data and dismisses the view.
     private func deleteCurrent() {
         guard let t = transaction else { return }
         withAnimation {
