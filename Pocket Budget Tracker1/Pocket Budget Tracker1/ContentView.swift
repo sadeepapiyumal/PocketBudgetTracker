@@ -1,6 +1,5 @@
 
 //  ContentView.swift
-//  Pocket Budget Tracker1
 
 //  Handles transition from onboarding to main app and manages tab selection state.
 
