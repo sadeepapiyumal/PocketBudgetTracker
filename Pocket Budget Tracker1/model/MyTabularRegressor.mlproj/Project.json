@@ -1,0 +1,29 @@
+{
+  "activityEntities" : [
+    "projectCreated",
+    [
+      {
+        "createdDate" : "2025-11-09T09:16:26Z",
+        "event" : "projectCreated",
+        "id" : "2CC0D151-9B36-4CF0-AB6E-2F2CBF1D3941",
+        "subtitle" : "MyTabularRegressor",
+        "title" : "Project Created"
+      }
+    ]
+  ],
+  "authorName" : "IM Student",
+  "createdDate" : "2025-11-09T09:16:26Z",
+  "description" : "",
+  "id" : "9733D5F4-5022-47B9-8426-098A042A9085",
+  "license" : "",
+  "location" : "",
+  "modifiedDate" : "2025-11-09T09:16:26Z",
+  "projectName" : "MyTabularRegressor",
+  "settingsEntity" : {
+    "snapshotOnExtendTraining" : true,
+    "snapshotOnResumeTraining" : false
+  },
+  "taskType" : "generalRegresor",
+  "title" : "Tabular Regression",
+  "version" : "1.1"
+}

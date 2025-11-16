@@ -1,41 +1,45 @@
-//
+
 //  DashboardView.swift
-//  Pocket Budget Tracker1
-//
-//  Created by IM Student on 2025-11-11.
-//
+
+//  Provides quick overview of income, expenses, balance, and next month expense forecast.
 
 import SwiftUI
 import CoreData
 
+// Displays income, expense, balance totals, budget usage percentage, and predicted expenses.
 struct DashboardView: View {
+    // Fetches all transactions sorted by date in descending order
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)])
     private var transactions: FetchedResults<Transaction>
 
+    // Returns tuple with income and expense amounts.
     private var totals: (income: Double, expense: Double) {
         let income = transactions.filter { $0.type == "Income" }.reduce(0) { $0 + $1.amount }
         let expense = transactions.filter { $0.type == "Expense" }.reduce(0) { $0 + $1.amount }
         return (income, expense)
     }
 
+    // Calculates current balance (income minus expenses).
     private var balance: Double { totals.income - totals.expense }
 
+    // MARK: - Body
     var body: some View {
         let predictor = ExpensePredictor()
         let predicted = predictor.predict(totalIncome: totals.income, totalExpense: totals.expense)
+        // Budget usage ratio: expense divided by income, clamped between 0 and 1
         let usage = totals.income > 0 ? min(max(totals.expense / totals.income, 0), 1) : 0
 
         NavigationStack {
             ScrollView {
                 VStack(spacing: 16) {
-                    // Summary Cards
+                    // Summary cards showing key financial metrics
                     HStack(spacing: 12) {
                         SummaryCard(title: "Income", value: totals.income, color: .green)
                         SummaryCard(title: "Expense", value: totals.expense, color: .red)
                     }
                     SummaryCard(title: "Balance", value: balance, color: .blue)
 
-                    // Budget usage
+                    // Budget usage progress indicator
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Budget Usage")
                             .font(.headline)
@@ -52,8 +56,8 @@ struct DashboardView: View {
                     .background(.thinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
 
-                    // Predicted next month expense - HIGHLIGHTED
-                    VStack(alignment: .center, spacing: 12) {
+                    // Highlighted AI prediction card for next month expense
+                    VStack(alignment: .center, spacing: 12) {"
                         HStack {
                             Image(systemName: "brain.head.profile")
                                 .font(.title2)
@@ -101,10 +105,16 @@ struct DashboardView: View {
     }
 }
 
+// MARK: - SummaryCard
+/// Reusable card component for displaying financial summary metrics.
+/// Shows a title and formatted currency value with customizable color.
 struct SummaryCard: View {
+    // MARK: - Properties
     let title: String
     let value: Double
     let color: Color
+    
+    // MARK: - Body
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title).font(.headline)

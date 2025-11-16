@@ -1,0 +1,41 @@
+{
+  "activityEntities" : [
+    "dataSourceTrainingStarted",
+    [
+      {
+        "createdDate" : "2025-11-09T09:18:00Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "EBB74ADF-BA8C-426E-A06F-B4DC09253696",
+        "subtitle" : "MyTabularRegressor 1",
+        "title" : "Used By"
+      }
+    ],
+    "dataSourceMetrics",
+    [
+      {
+        "createdDate" : "2025-11-09T09:18:00Z",
+        "event" : "dataSourceMetrics",
+        "id" : "EDB08C1B-4270-4C69-BE1F-F9BC110E0B9C",
+        "subtitle" : "20 Items",
+        "title" : "Data Summary"
+      }
+    ]
+  ],
+  "createdDate" : "2025-11-09T09:16:47Z",
+  "dataPathRelativeToProjectURL" : "../BudgetData.csv/",
+  "dataResult" : {
+    "createdDate" : "2025-11-09T09:16:47Z",
+    "dataSourceID" : "59735DA1-27A2-49CB-8FEB-BB495BE3629F",
+    "dataURL" : "file:///Users/imstudent/Desktop/IT22597656/Pocket%20Budget%20Tracker1/BudgetData.csv"
+  },
+  "dataURL" : "file:///Users/imstudent/Desktop/IT22597656/Pocket%20Budget%20Tracker1/BudgetData.csv",
+  "experimentIDs" : [
+    "4ADA14E5-F91E-4A00-AB5B-0FBA2FB6863D"
+  ],
+  "id" : "59735DA1-27A2-49CB-8FEB-BB495BE3629F",
+  "modifiedDate" : "2025-11-09T09:18:00Z",
+  "pathType" : 0,
+  "preferredFilename" : "BudgetData.csv",
+  "title" : "BudgetData.csv",
+  "version" : "1.0"
+}

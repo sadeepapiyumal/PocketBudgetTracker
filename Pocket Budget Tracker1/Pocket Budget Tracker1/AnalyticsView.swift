@@ -1,18 +1,20 @@
-//
+
 //  AnalyticsView.swift
-//  Pocket Budget Tracker1
-//
-//  Created by IM Student on 2025-11-11.
-//
+
+//  Displays comprehensive financial analytics including monthly trends, comparisons,
 
 import SwiftUI
 import Charts
 import CoreData
 
+// Shows monthly income vs expense trends, period comparisons, and predicted next month expenses.
 struct AnalyticsView: View {
+    // Fetches all transactions sorted by date in ascending order
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.date, ascending: true)])
     private var transactions: FetchedResults<Transaction>
 
+    
+    // Returns sorted tuples of (month date, total expense amount).
     private var monthlyTrend: [(Date, Double)] {
         let cal = Calendar.current
         let expenses = transactions.filter { $0.type == "Expense" }
@@ -22,6 +24,7 @@ struct AnalyticsView: View {
         return groups.map { ($0.key, $0.value.reduce(0) { $0 + $1.amount }) }.sorted { $0.0 < $1.0 }
     }
 
+    // Returns sorted tuples of (month date, total income amount).
     private var monthlyIncomeTrend: [(Date, Double)] {
         let cal = Calendar.current
         let incomes = transactions.filter { $0.type == "Income" }
@@ -31,6 +34,7 @@ struct AnalyticsView: View {
         return groups.map { ($0.key, $0.value.reduce(0) { $0 + $1.amount }) }.sorted { $0.0 < $1.0 }
     }
 
+    // Returns sorted tuples of (day date, daily expense total).
     private var currentMonthExpenseTrend: [(Date, Double)] {
         let cal = Calendar.current
         let now = Date()
@@ -43,6 +47,7 @@ struct AnalyticsView: View {
         return groups.map { ($0.key, $0.value.reduce(0) { $0 + $1.amount }) }.sorted { $0.0 < $1.0 }
     }
 
+    // Returns sorted tuples of (day date, daily income total).
     private var currentMonthIncomeTrend: [(Date, Double)] {
         let cal = Calendar.current
         let now = Date()
@@ -55,6 +60,7 @@ struct AnalyticsView: View {
         return groups.map { ($0.key, $0.value.reduce(0) { $0 + $1.amount }) }.sorted { $0.0 < $1.0 }
     }
 
+    // Combines current month income and expense trends into a single dataset.
     private var currentMonthCombinedTrend: [(Date, Double, String)] {
         let incomeSeries = currentMonthIncomeTrend.map { ($0.0, $0.1, "Income") }
         let expenseSeries = currentMonthExpenseTrend.map { ($0.0, $0.1, "Expense") }
@@ -62,6 +68,7 @@ struct AnalyticsView: View {
     }
 
 
+    // MARK: - Body
     var body: some View {
         let incomeTotal = transactions.filter { $0.type == "Income" }.reduce(0) { $0 + $1.amount }
         let expenseTotal = transactions.filter { $0.type == "Expense" }.reduce(0) { $0 + $1.amount }
@@ -87,7 +94,7 @@ struct AnalyticsView: View {
             (currentMonthStart, thisMonthExpense),
             (nextMonthStart, predicted)
         ]
-        // Series up to today only (no fabricated zero points)
+        // Series up to today
         let todayStart = cal.startOfDay(for: now)
         let expenseUptoToday = currentMonthExpenseTrend.filter { cal.startOfDay(for: $0.0) <= todayStart }
         let incomeUptoToday = currentMonthIncomeTrend.filter { cal.startOfDay(for: $0.0) <= todayStart }
@@ -98,7 +105,7 @@ struct AnalyticsView: View {
             ScrollView {
                 VStack(spacing: 12) {
 
-                // Monthly income vs expenses (this month)
+                // Chart 1: Daily income and expense trends for current month
                 VStack(alignment: .leading) {
                     Text("Monthly Income vs Expense (This Month)").font(.headline)
                     Chart {
@@ -111,7 +118,7 @@ struct AnalyticsView: View {
                             PointMark(x: .value("Day", date), y: .value("Amount", value))
                                 .foregroundStyle(by: .value("Type", type))
                         }
-                        // Today marker
+                        // Vertical line marking today's date
                         RuleMark(x: .value("Today", todayStart))
                             .foregroundStyle(.gray.opacity(0.5))
                             .lineStyle(StrokeStyle(lineWidth: 1, dash: [4]))
@@ -138,7 +145,7 @@ struct AnalyticsView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .padding(.horizontal)
 
-                // Comparison: Previous vs Current vs Next (Predicted) - bar chart
+                // Chart 2: Bar chart comparing previous, current, and predicted next month expenses
                 VStack(alignment: .leading) {
                     Text("Expense: Previous vs Current vs Next (Predicted)").font(.headline)
                     Chart {
@@ -168,7 +175,7 @@ struct AnalyticsView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .padding(.horizontal)
 
-                // Predicted next month expense - HIGHLIGHTED
+                // Highlighted AI prediction card for next month expense
                 VStack(alignment: .center, spacing: 12) {
                     HStack {
                         Image(systemName: "brain.head.profile")
@@ -209,4 +216,9 @@ struct AnalyticsView: View {
             .navigationTitle("Analytics")
         }
     }
+}
+
+// MARK: - Preview
+#Preview {
+    AnalyticsView()
 }

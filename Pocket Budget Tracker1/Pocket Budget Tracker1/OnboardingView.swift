@@ -1,28 +1,29 @@
-//
+
 //  OnboardingView.swift
-//  Pocket Budget Tracker1
-//
-//  Created by IM Student on 2025-11-11.
-//
+
+//  Introduces key features: expense tracking, analytics visualization, and AI predictions.
 
 import SwiftUI
 
+// Multi-page onboarding flow introducing app features to new users.
 struct OnboardingView: View {
     @Binding var showOnboarding: Bool
     @State private var currentPage = 0
     
+    // MARK: - Body
     var body: some View {
         ZStack {
             Color(.systemBackground)
                 .ignoresSafeArea()
             
             TabView(selection: $currentPage) {
-                // Welcome Screen with Logo and Tagline
+                // Page 0: Welcome screen with app branding
                 WelcomePageView(
                     currentPage: $currentPage
                 )
                 .tag(0)
                 
+                // Page 1: Expense tracking feature
                 OnboardingPageView(
                     iconName: "creditcard",
                     title: "Track Every Expense",
@@ -33,6 +34,7 @@ struct OnboardingView: View {
                 )
                 .tag(1)
                 
+                // Page 2: Analytics visualization feature
                 OnboardingPageView(
                     iconName: "chart.bar.xaxis",
                     title: "Visualize Your Spending",
@@ -43,6 +45,7 @@ struct OnboardingView: View {
                 )
                 .tag(2)
                 
+                // Page 3: AI prediction feature (final page)
                 OnboardingPageView(
                     iconName: "brain.head.profile",
                     title: "Predict Smarter",
@@ -63,22 +66,24 @@ struct OnboardingView: View {
     }
 }
 
-// Welcome Screen (First Screen)
+// MARK: - WelcomePageView
 struct WelcomePageView: View {
+    // MARK: - Properties
     @Binding var currentPage: Int
     
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
             
-            // Logo
+            // App logo/icon
             Image("AppIcon")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 250, height: 250)
                 .padding(.bottom, 24)
             
-            // Tagline
+            // App tagline
             Text("Track smart. Spend wiser.")
                 .font(.title2.italic())
                 .foregroundStyle(.gray)
@@ -86,7 +91,7 @@ struct WelcomePageView: View {
             
             Spacer()
             
-            // Next Button
+            // Navigation button to next page
             Button(action: {
                 withAnimation {
                     currentPage += 1
@@ -109,7 +114,9 @@ struct WelcomePageView: View {
     }
 }
 
+// Reusable onboarding page displaying feature with icon, title, and description.
 struct OnboardingPageView: View {
+    // MARK: - Properties
     let iconName: String
     let title: String
     let description: String
@@ -118,24 +125,25 @@ struct OnboardingPageView: View {
     let isLastPage: Bool
     var onComplete: (() -> Void)? = nil
     
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
             
-            // Icon
+            // Feature icon
             Image(systemName: iconName)
                 .font(.system(size: 80))
                 .foregroundStyle(.blue)
                 .padding(.top, 30)
             
-            // Title
+            // Feature title
             Text(title)
                 .font(.largeTitle.bold())
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40)
                 .padding(.bottom, 16)
             
-            // Description
+            // Feature description
             Text(description)
                 .font(.body)
                 .multilineTextAlignment(.center)
@@ -145,7 +153,7 @@ struct OnboardingPageView: View {
             
             Spacer()
             
-            // Button
+            // Navigation button - "Next" or "Get Started" on final page
             Button(action: {
                 if isLastPage {
                     onComplete?()

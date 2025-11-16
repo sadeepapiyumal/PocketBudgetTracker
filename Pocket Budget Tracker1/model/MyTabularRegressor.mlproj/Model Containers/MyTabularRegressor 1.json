@@ -1,0 +1,396 @@
+{
+  "activityEntities" : [
+    "evaluationFinished",
+    [
+      {
+        "createdDate" : "2025-11-09T09:18:39Z",
+        "event" : "evaluationFinished",
+        "id" : "D307F9FF-460B-41FB-9909-6CEAC53311D8",
+        "subtitle" : "MyTabularRegressor 1",
+        "title" : "Testing Completed"
+      }
+    ],
+    "evaluationDataAdded",
+    [
+      {
+        "createdDate" : "2025-11-09T09:18:37Z",
+        "event" : "evaluationDataAdded",
+        "id" : "2F6E3B40-A563-4B31-8FF6-5A86F0203B1C",
+        "subtitle" : "BudgetData.csv",
+        "title" : "Testing Data Added"
+      }
+    ],
+    "experimentCreated",
+    [
+      {
+        "createdDate" : "2025-11-09T09:16:26Z",
+        "event" : "experimentCreated",
+        "id" : "9312638C-FE98-4B1C-9E41-617FBC08123F",
+        "subtitle" : "MyTabularRegressor 1",
+        "title" : "Model Source Created"
+      }
+    ],
+    "trainingStarted",
+    [
+      {
+        "createdDate" : "2025-11-09T09:18:00Z",
+        "event" : "trainingStarted",
+        "id" : "059E819B-B1FD-4F6B-A443-89985C8CB7F1",
+        "subtitle" : "MyTabularRegressor 1",
+        "title" : "Training Started"
+      }
+    ],
+    "trainingFinished",
+    [
+      {
+        "createdDate" : "2025-11-09T09:18:00Z",
+        "event" : "trainingFinished",
+        "id" : "6B2848F1-7DBD-4D9E-94B0-9AD820D6F03A",
+        "subtitle" : "MyTabularRegressor 1",
+        "title" : "Training Completed"
+      }
+    ],
+    "evaluationStarted",
+    [
+      {
+        "createdDate" : "2025-11-09T09:18:38Z",
+        "event" : "evaluationStarted",
+        "id" : "2E257BD7-F7FE-4DFE-A256-36F717F22309",
+        "subtitle" : "MyTabularRegressor 1",
+        "title" : "Testing Started"
+      }
+    ],
+    "trainingDataAdded",
+    [
+      {
+        "createdDate" : "2025-11-09T09:17:03Z",
+        "event" : "trainingDataAdded",
+        "id" : "F6070D64-9A09-4397-AFF6-CA777B6ED108",
+        "subtitle" : "BudgetData.csv",
+        "title" : "Training Data Added"
+      }
+    ]
+  ],
+  "contentDataResult" : {
+    "createdDate" : "2025-11-09T09:16:47Z"
+  },
+  "createdDate" : "2025-11-09T09:16:26Z",
+  "evaluationContainerEntity" : {
+    "createdDate" : "2025-11-09T09:18:39Z",
+    "evaluationEntities" : [
+      {
+        "accuracy" : 3734.084148626845,
+        "analysedDataType" : "datasource",
+        "createdDate" : "2025-11-09T09:18:00Z",
+        "dataResult" : {
+          "columnTypes" : [
+            "Int",
+            "Int",
+            "Int",
+            "Int",
+            "String",
+            "String",
+            "String"
+          ],
+          "columnValues" : [
+            "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20",
+            "95,000, 97,000, 105,000, 110,000, 108,000, 115,000, 120,000, 118,000, 122,000, 125,000, 130,000, 128,000, 126,000, 129,000, 131,000, 75,000, 80,000, 85,000, 70,000, 68,000",
+            "87,000, 89,000, 95,000, 98,000, 97,000, 99,000, 103,000, 101,000, 106,000, 109,000, 112,000, 110,000, 109,000, 111,000, 113,000, 65,000, 74,000, 79,000, 61,500, 55,800",
+            "88,000, 90,000, 94,000, 96,000, 97,000, 98,500, 100,000, 99,500, 102,000, 104,000, 108,000, 107,000, 107,000, 108,500, 110,000, 67,500, 75,000, 82,500, 64,000, 56,500",
+            "<nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>",
+            "<nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>",
+            "<nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>"
+          ],
+          "columns" : [
+            "Month",
+            "totalIncome",
+            "totalExpense",
+            "nextMonthExpense",
+            "Column 4",
+            "Column 5",
+            "Column 6"
+          ],
+          "createdDate" : "2025-11-09T09:18:37Z",
+          "dataAnalysis" : {
+            "classifierAnalysis" : {
+
+            },
+            "issues" : [
+              {
+                "description" : "Data has 20 rows",
+                "severity" : "info"
+              }
+            ],
+            "objectDetectorAnalysis" : {
+              "details" : {
+
+              }
+            },
+            "summary" : {
+              "canUseValidation" : 0,
+              "maximum" : 110000,
+              "minimum" : 56500,
+              "sampleCount" : 20
+            }
+          },
+          "dataSourceID" : "59735DA1-27A2-49CB-8FEB-BB495BE3629F",
+          "dataURL" : "file:///Users/imstudent/Desktop/IT22597656/Pocket%20Budget%20Tracker1/BudgetData.csv",
+          "itemsCount" : 20
+        },
+        "dataSourceID" : "59735DA1-27A2-49CB-8FEB-BB495BE3629F",
+        "evaluationResult" : {
+          "generalRegressor" : {
+            "maximumError" : 11707.602048907429,
+            "rootMeanSquaredError" : 3734.084148626845
+          }
+        },
+        "finishTime" : "2025-11-09T09:18:39Z",
+        "id" : "1bc93632-b2d7-4737-9a9a-0bb93a1125f4",
+        "startTime" : "2025-11-09T09:18:38Z"
+      }
+    ],
+    "id" : "80b5c22b-547f-481b-a781-939339c4b22f",
+    "modifiedDate" : "2025-11-09T09:18:39Z",
+    "previewType" : "tabularRegressor",
+    "testingEvaluationEntity" : {
+      "analysedDataType" : "none",
+      "createdDate" : "2025-11-09T09:16:26Z",
+      "dataResult" : {
+        "createdDate" : "2025-11-09T09:16:47Z"
+      },
+      "id" : "ca92ae68-b945-4726-9d15-aeba4e613fc3"
+    },
+    "trainingEvaluationEntity" : {
+      "analysedDataType" : "none",
+      "createdDate" : "2025-11-09T09:16:26Z",
+      "dataResult" : {
+        "createdDate" : "2025-11-09T09:16:47Z",
+        "dataAnalysis" : {
+          "classifierAnalysis" : {
+
+          },
+          "issues" : [
+            {
+              "description" : "Data has 20 rows",
+              "severity" : "info"
+            }
+          ],
+          "objectDetectorAnalysis" : {
+            "details" : {
+
+            }
+          },
+          "summary" : {
+            "canUseValidation" : 0,
+            "maximum" : 110000,
+            "minimum" : 56500,
+            "sampleCount" : 20
+          }
+        },
+        "dataSourceID" : "59735DA1-27A2-49CB-8FEB-BB495BE3629F",
+        "dataURL" : "file:///Users/imstudent/Desktop/IT22597656/Pocket%20Budget%20Tracker1/BudgetData.csv",
+        "itemsCount" : 20
+      },
+      "dataSourceID" : "59735DA1-27A2-49CB-8FEB-BB495BE3629F",
+      "evaluationResult" : {
+        "generalRegressor" : {
+          "maximumError" : 11707.602048907429,
+          "rootMeanSquaredError" : 3883.2755797747877
+        }
+      },
+      "id" : "d98eb02d-1db1-46d3-983c-e54f6d106cfb"
+    },
+    "validationEvaluationEntity" : {
+      "analysedDataType" : "auto",
+      "createdDate" : "2025-11-09T09:16:26Z",
+      "dataResult" : {
+        "createdDate" : "2025-11-09T09:16:47Z"
+      },
+      "evaluationResult" : {
+        "generalRegressor" : {
+          "maximumError" : 2566.0597230416897,
+          "rootMeanSquaredError" : 1927.532420994715
+        }
+      },
+      "id" : "ca7679fb-72ec-429d-b3f3-1bd59359be02"
+    }
+  },
+  "evaluationEntity" : {
+    "analysedDataType" : "none",
+    "dataResult" : {
+
+    },
+    "id" : "518d9d2c-fb8f-48ec-ad02-894177628ac8"
+  },
+  "evaluationState" : "evaluated",
+  "id" : "4ADA14E5-F91E-4A00-AB5B-0FBA2FB6863D",
+  "modelEntity" : {
+    "createdDate" : "2025-11-09T09:16:26Z",
+    "experimentID" : "4ADA14E5-F91E-4A00-AB5B-0FBA2FB6863D",
+    "id" : "ABB80D3E-888D-47BD-B830-024B392DEC4F",
+    "modelURL" : "Models/MyTabularRegressor%201.mlmodel",
+    "modifiedDate" : "2025-11-09T09:16:26Z",
+    "title" : "",
+    "version" : "1.0"
+  },
+  "modifiedDate" : "2025-11-09T09:18:39Z",
+  "preferredFilename" : "MyTabularRegressor 1",
+  "settingEntity" : {
+    "algorithmType" : "maxEnt",
+    "augmentations" : [
+
+    ],
+    "featureNames" : [
+      "totalIncome",
+      "totalExpense"
+    ],
+    "generalRegressorType" : {
+      "auto" : {
+
+      }
+    },
+    "handActionClassifierAugmentations" : [
+
+    ],
+    "handPoseClassifierAugmentations" : [
+
+    ],
+    "harVideoAugmentations" : 0,
+    "seedType" : "default",
+    "styleTransferAlgorithmType" : "image",
+    "suggestedColumnTypes" : [
+      "Int",
+      "Int",
+      "Int",
+      "Int",
+      "String",
+      "String",
+      "String"
+    ],
+    "suggestedColumnValues" : [
+      "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20",
+      "95,000, 97,000, 105,000, 110,000, 108,000, 115,000, 120,000, 118,000, 122,000, 125,000, 130,000, 128,000, 126,000, 129,000, 131,000, 75,000, 80,000, 85,000, 70,000, 68,000",
+      "87,000, 89,000, 95,000, 98,000, 97,000, 99,000, 103,000, 101,000, 106,000, 109,000, 112,000, 110,000, 109,000, 111,000, 113,000, 65,000, 74,000, 79,000, 61,500, 55,800",
+      "88,000, 90,000, 94,000, 96,000, 97,000, 98,500, 100,000, 99,500, 102,000, 104,000, 108,000, 107,000, 107,000, 108,500, 110,000, 67,500, 75,000, 82,500, 64,000, 56,500",
+      "<nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>",
+      "<nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>",
+      "<nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>"
+    ],
+    "suggestedColumns" : [
+      "Month",
+      "totalIncome",
+      "totalExpense",
+      "nextMonthExpense",
+      "Column 4",
+      "Column 5",
+      "Column 6"
+    ],
+    "targetColumn" : "nextMonthExpense",
+    "taskType" : "generalRegresor",
+    "transferLearningEmbeddingType" : "dynamic"
+  },
+  "snapshotRole" : {
+    "withoutSnapshots" : 0
+  },
+  "state" : "trained",
+  "title" : "MyTabularRegressor 1",
+  "trainingEntity" : {
+    "analysedDataType" : "datasource",
+    "checkpointMetrics" : {
+
+    },
+    "dataResult" : {
+      "columnTypes" : [
+        "Int",
+        "Int",
+        "Int",
+        "Int",
+        "String",
+        "String",
+        "String"
+      ],
+      "columnValues" : [
+        "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20",
+        "95,000, 97,000, 105,000, 110,000, 108,000, 115,000, 120,000, 118,000, 122,000, 125,000, 130,000, 128,000, 126,000, 129,000, 131,000, 75,000, 80,000, 85,000, 70,000, 68,000",
+        "87,000, 89,000, 95,000, 98,000, 97,000, 99,000, 103,000, 101,000, 106,000, 109,000, 112,000, 110,000, 109,000, 111,000, 113,000, 65,000, 74,000, 79,000, 61,500, 55,800",
+        "88,000, 90,000, 94,000, 96,000, 97,000, 98,500, 100,000, 99,500, 102,000, 104,000, 108,000, 107,000, 107,000, 108,500, 110,000, 67,500, 75,000, 82,500, 64,000, 56,500",
+        "<nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>",
+        "<nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>",
+        "<nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>, <nil>"
+      ],
+      "columns" : [
+        "Month",
+        "totalIncome",
+        "totalExpense",
+        "nextMonthExpense",
+        "Column 4",
+        "Column 5",
+        "Column 6"
+      ],
+      "createdDate" : "2025-11-09T09:16:47Z",
+      "dataAnalysis" : {
+        "classifierAnalysis" : {
+
+        },
+        "issues" : [
+          {
+            "description" : "Data has 20 rows",
+            "severity" : "info"
+          }
+        ],
+        "objectDetectorAnalysis" : {
+          "details" : {
+
+          }
+        },
+        "summary" : {
+          "canUseValidation" : 0,
+          "maximum" : 110000,
+          "minimum" : 56500,
+          "sampleCount" : 20
+        }
+      },
+      "dataSourceID" : "59735DA1-27A2-49CB-8FEB-BB495BE3629F",
+      "dataURL" : "file:///Users/imstudent/Desktop/IT22597656/Pocket%20Budget%20Tracker1/BudgetData.csv",
+      "itemsCount" : 20
+    },
+    "dataSourceID" : "59735DA1-27A2-49CB-8FEB-BB495BE3629F",
+    "featureExtractionCheckpointMayBeAvailable" : false,
+    "finishTime" : "2025-11-09T09:18:00Z",
+    "progress" : [
+
+    ],
+    "snapshottableCheckpoints" : {
+
+    },
+    "startTime" : "2025-11-09T09:18:00Z",
+    "trainingAccuracy" : 3883.2755797747877,
+    "trainingResults" : {
+      "generalRegressor" : {
+        "maximumError" : 11707.602048907429,
+        "rootMeanSquaredError" : 3883.2755797747877
+      }
+    },
+    "validationAccuracy" : 1927.532420994715,
+    "validationResults" : {
+      "generalRegressor" : {
+        "maximumError" : 2566.0597230416897,
+        "rootMeanSquaredError" : 1927.532420994715
+      }
+    }
+  },
+  "validationEntity" : {
+    "analysedDataType" : "auto",
+    "dataResult" : {
+      "createdDate" : "2025-11-09T09:16:47Z"
+    },
+    "splitOptions" : {
+      "strategy" : {
+        "automatic" : {
+
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
